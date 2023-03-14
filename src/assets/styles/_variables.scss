@@ -1,0 +1,90 @@
+// Base
+$base:          16px;
+$space:         1.2rem;
+
+// Colors
+$white:         #ffffff;
+$gray:          #f5f7f9;
+$black:         #000000;
+
+$light-text:    #d6dade;
+$dark-text:     #5c656e;
+
+$accent:        #459672;
+$error:         #BD4A47;
+$dark-accent:   darken($accent, 10%);
+
+$background:    $gray;
+$border-color:  #f1f1f1; 
+$box-shadow:    0 0 5px 2px rgba($black, .05);
+
+// Breakpoints
+$breakpoint-desktop:   			    			1264px;
+$breakpoint-tablet:       					  960px;
+$breakpoint-mobile:       						700px;
+
+$large-desktop:                       "(min-width: #{$breakpoint-desktop + 1})";
+$desktop:                             "(min-width: #{$breakpoint-tablet + 1}) and (max-width: #{$breakpoint-desktop})";
+$tablet:                              "(min-width: #{$breakpoint-mobile + 1}) and (max-width: #{$breakpoint-tablet})";
+$mobile:                              "(max-width: #{$breakpoint-mobile})";
+
+$min-large-desktop:                   $large-desktop;
+$min-desktop:                         "(min-width: #{$breakpoint-desktop + 1})";
+$min-tablet:                          "(min-width: #{$breakpoint-mobile + 1})";
+
+// Fonts
+$main-font:         'Roboto';
+$main-weight:       400;
+$main-size:         $base;
+$main-size-mobile:  $main-size - 2;
+
+// Button
+$button-bg-color-default:             $white;
+$button-bg-color-default-hover:       $background;
+$button-bg-color-default-active:      $background;
+$button-bg-color-primary:             $accent;
+$button-bg-color-primary-hover:       darken($accent, 5%);
+$button-bg-color-primary-active:      darken($accent, 15%);
+
+$button-text-color:                   $white;
+$button-text-color-second:            $dark-text;
+
+$button-font-weight:                  500;
+
+$button-text-size-small:              .7rem;
+$button-text-size-medium:             .85rem;
+$button-text-size-large:              1rem;
+
+$button-padding-small:                .4rem .8rem;
+$button-padding-medium:               .6rem 1rem;
+$button-padding-desktop:              .8rem 1.2rem;
+$button-min-width:                    2rem;
+
+// Pagination
+$pagination-space:                    $space;
+$pagination-item-bg-color:            $white;
+$pagination-item-bg-color-hover:      $accent;
+$pagination-item-bg-color-active:     $accent;
+$pagination-item-text-color:          $accent;
+$pagination-item-text-color-hover:    $white;
+$pagination-item-text-color-active:   $white;
+$pagination-item-border-color:        $border-color;
+$pagination-item-font-size:           .9rem;
+$pagination-item-font-weight:         500;
+$pagination-item-height:              32px;
+$pagination-item-max-width:           30px;
+
+// Table
+$tr-bg-color-odd:                     $background;
+$tr-bg-color-hover:                   darken($background, 3%);
+$td-space:                            $space / 2;
+$td-height:                           50px;
+
+// Section
+$section-background:                  $white;
+$section-radius:                      5px;
+$section-border-color:                $border-color;
+$section-header-border-color:         $background;
+$section-shadow:                      $box-shadow;
+$section-space:                       $space;
+$section-min-height:                  16rem;

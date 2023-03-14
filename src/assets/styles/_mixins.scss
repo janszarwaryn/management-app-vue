@@ -1,0 +1,83 @@
+@mixin center-block {
+  display: block;
+  margin-left: auto;
+  margin-right: auto
+}
+
+@mixin center-block-vertically {
+  display: flex;
+  align-items: center;
+}
+
+@mixin has-two-cols {
+  @include center-block-vertically;
+  justify-content: space-between;
+}
+
+@mixin screen($size) {
+  @if $size == large-desktop {
+    @media #{$large-desktop} {
+      @content;
+    }
+  }
+
+  @if $size == min-desktop {
+    @media #{$min-desktop} {
+      @content;
+    }
+  }
+
+  @if $size == desktop {
+    @media #{$desktop} {
+      @content;
+    }
+  }
+
+  @else if $size == min-tablet {
+    @media #{$min-tablet} {
+      @content;
+    }
+  }
+
+  @else if $size == tablet {
+    @media #{$tablet} {
+      @content;
+    }
+  }
+
+  @else if $size == mobile {
+    @media #{$mobile} {
+      @content;
+    }
+  }
+
+  @else {
+    @media (min-width: #{$size}) {
+      @content;
+    }
+  }
+}
+
+@mixin button($background, $background-hover, $background-active, $text-color) {
+  background-color: $background;
+  border: 1px solid $background;
+  color: $text-color;
+  cursor: pointer;
+  transition: background-color 200ms linear;
+
+  &:hover,
+  &:focus {
+    background-color: $background-hover
+  }
+
+  &:active {
+    background-color: $background-active
+  }
+
+  &[disabled] {
+    background-color: $background !important;
+    color: $text-color !important;
+    opacity: .5;
+    cursor: not-allowed;
+  }
+}
