@@ -2,6 +2,7 @@
 button.ft-button(
   :class="`ft-button--${variant} ft-button--${size} ${isRounded} ${isBlock}`"
   @click="click"
+  @keyup.enter="click"
 )
   slot
 </template>
