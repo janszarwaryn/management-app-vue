@@ -1,9 +1,9 @@
 <template lang="pug">
-button.ft-pagination__item(
-  :class="`${isFirst} ${isLast} ${isActive}`"
-  @click="click"
-)
-  slot
+  button.ft-pagination__item(
+    :class="`${isFirst} ${isLast} ${isActive}`"
+    @click="click"
+  )
+    slot
 </template>
 
 <script>
@@ -45,10 +45,10 @@ export default {
 <style lang="scss" scoped>
 .ft-pagination__item {
   @include button(
-    $pagination-item-bg-color,
-    $pagination-item-bg-color-hover,
-    $pagination-item-bg-color-active,
-    $pagination-item-text-color
+      $pagination-item-bg-color,
+      $pagination-item-bg-color-hover,
+      $pagination-item-bg-color-active,
+      $pagination-item-text-color
   );
   font-size: $pagination-item-font-size;
   font-weight: $pagination-item-font-weight;

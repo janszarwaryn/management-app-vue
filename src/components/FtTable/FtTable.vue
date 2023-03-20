@@ -1,11 +1,11 @@
 <template lang="pug">
-table.ft-table
-  thead(v-if="headers.length")
-    tr
-      th(v-for="title in headers") {{ title }}
+  table.ft-table
+    thead(v-if="headers.length")
+      tr
+        th(v-for="title in headers") {{ title }}
 
-  tbody
-    slot
+    tbody
+      slot
 </template>
 
 <script>

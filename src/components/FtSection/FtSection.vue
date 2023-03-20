@@ -1,16 +1,16 @@
 <template lang="pug">
-.ft-section
-  header.ft-section__header(
-    v-if="hasSlotHeader"
-    :class="{ 'ft-section__header--has-two-cols' : headerTwoColumns }"
-  )
-    slot(name="header")
+  .ft-section
+    header.ft-section__header(
+      v-if="hasSlotHeader"
+      :class="{ 'ft-section__header--has-two-cols' : headerTwoColumns }"
+    )
+      slot(name="header")
 
-  .ft-section__body(:class="{ 'ft-section__body--center' : centerContent }")
-    slot
+    .ft-section__body(:class="{ 'ft-section__body--center' : centerContent }")
+      slot
 
-  .ft-section__footer(v-if="hasSlotFooter")
-    slot(name="footer")
+    .ft-section__footer(v-if="hasSlotFooter")
+      slot(name="footer")
 </template>
 
 <script>
@@ -55,7 +55,7 @@ export default {
     border-bottom: 1px solid $section-header-border-color;
     padding-bottom: $section-space;
 
-    @include screen (min-tablet) {
+    @include screen(min-tablet) {
       margin-bottom: $section-space;
 
       &--has-two-cols {
@@ -72,7 +72,7 @@ export default {
       justify-content: center
     }
 
-    @include screen (min-tablet) {
+    @include screen(min-tablet) {
       min-height: $section-min-height;
     }
   }

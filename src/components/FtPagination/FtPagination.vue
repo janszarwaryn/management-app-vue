@@ -1,30 +1,30 @@
 <template lang="pug">
-.ft-pagination
-  ft-pagination-item(
-    v-if="totalPages > 1"
-    first
-    aria-label="Previous page"
-    :disabled="activePage < 2"
-    @click="previous"
-  )
-    font-awesome-icon(:icon="arrowLeft")
+  .ft-pagination
+    ft-pagination-item(
+      v-if="totalPages > 1"
+      first
+      aria-label="Previous page"
+      :disabled="activePage < 2"
+      @click="previous"
+    )
+      font-awesome-icon(:icon="arrowLeft")
 
-  ft-pagination-item(
-    v-for="(page, index) in +totalPages"
-    :number="page"
-    :active="page === +activePage"
-    :key="`page-${page}`"
-    @click="click(page)"
-  ) {{ page }}
+    ft-pagination-item(
+      v-for="(page, index) in +totalPages"
+      :number="page"
+      :active="page === +activePage"
+      :key="`page-${page}`"
+      @click="click(page)"
+    ) {{ page }}
 
-  ft-pagination-item(
-    v-if="totalPages > 1"
-    last
-    aria-label="Next page"
-    :disabled="activePage === totalPages"
-    @click="next"
-  )
-    font-awesome-icon(:icon="arrowRight")
+    ft-pagination-item(
+      v-if="totalPages > 1"
+      last
+      aria-label="Next page"
+      :disabled="activePage === totalPages"
+      @click="next"
+    )
+      font-awesome-icon(:icon="arrowRight")
 </template>
 
 <script>
@@ -42,11 +42,11 @@ export default {
   },
   props: {
     totalPages: {
-      type: [ String, Number ],
+      type: [String, Number],
       default: 0
     },
     activePage: {
-      type: [ String, Number ],
+      type: [String, Number],
       default: 0
     }
   },
