@@ -1,7 +1,7 @@
 <script>
 /**
  * For more info go there: https://github.com/alexsasharegan/vue-functional-data-merge#readme
-*/
+ */
 import { mergeData } from 'vue-functional-data-merge'
 
 export default {

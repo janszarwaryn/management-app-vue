@@ -1,30 +1,30 @@
 <template lang="pug">
-.ft-input
-  label.ft-input__label(
-    :for="id"
-    :class="[{ 'ft-input__label--error' : validError }]"
-    v-show="!hideLabel"
-    v-if="label"
-  )
-    | {{ label }} <slot name="label"></slot>
-
-  .ft-input__field-container
-    input.ft-input__field(
-      :class="[{ 'ft-input__field--error' : validError }, { 'ft-input__field--disabled' : disabled }, { 'ft-input__field--icon' : showIcon } ]"
-      :id="id"
-      :name="name"
-      :placeholder="placeholder"
-      :value="localValue"
-      :type="type"
-      :disabled="disabled"
-      @input="input"
-      @change="change"
+  .ft-input
+    label.ft-input__label(
+      :for="id"
+      :class="[{ 'ft-input__label--error' : validError }]"
+      v-show="!hideLabel"
+      v-if="label"
     )
-    .ft-input__icon(v-if="showIcon")
-      slot(name="icon")
+      | {{ label }} <slot name="label"></slot>
 
-  span.ft-input__msg(:class="{ 'ft-input__msg--error' : validError }" v-show="showErrorMessage")
-    slot(name="error-message")
+    .ft-input__field-container
+      input.ft-input__field(
+        :class="[{ 'ft-input__field--error' : validError }, { 'ft-input__field--disabled' : disabled }, { 'ft-input__field--icon' : showIcon } ]"
+        :id="id"
+        :name="name"
+        :placeholder="placeholder"
+        :value="localValue"
+        :type="type"
+        :disabled="disabled"
+        @input="input"
+        @change="change"
+      )
+      .ft-input__icon(v-if="showIcon")
+        slot(name="icon")
+
+    span.ft-input__msg(:class="{ 'ft-input__msg--error' : validError }" v-show="showErrorMessage")
+      slot(name="error-message")
 </template>
 
 <script>
