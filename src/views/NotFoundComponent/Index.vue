@@ -1,8 +1,8 @@
 <template lang="pug">
-ft-section
-  h1 Not found
-  p Uppsss... Something went wrong...
-  ft-button(@click="goBack") Back to the previous page
+  ft-section
+    h1 Not found
+    p Uppsss... Something went wrong...
+    ft-button(@click="goBack") Back to the previous page
 </template>
 
 <script>

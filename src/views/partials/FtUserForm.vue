@@ -1,32 +1,32 @@
 <template lang="pug">
-ft-section
-  form.grid(novalidate)
-    ft-input.grid__col.grid__col--first(
-      type="text"
-      name="firstName"
-      id="firstName"
-      label="First name"
-      v-model.trim="localFirstName"
-      :valid-error="$v.localFirstName.$error"
-      @change="$v.localFirstName.$touch()"
-    )
-      template(slot="error-message")
-        span(v-if="!$v.localFirstName.required") This field is required
+  ft-section
+    form.grid(novalidate)
+      ft-input.grid__col.grid__col--first(
+        type="text"
+        name="firstName"
+        id="firstName"
+        label="First name"
+        v-model.trim="localFirstName"
+        :valid-error="$v.localFirstName.$error"
+        @change="$v.localFirstName.$touch()"
+      )
+        template(slot="error-message")
+          span(v-if="!$v.localFirstName.required") This field is required
 
-    ft-input.grid__col.grid__col--last(
-      type="text"
-      name="lastName"
-      id="lastName"
-      label="Last name"
-      v-model.trim="localLastName"
-      :valid-error="$v.localLastName.$error"
-      @change="$v.localLastName.$touch()"
-    )
-      template(slot="error-message")
-        span(v-if="!$v.localLastName.required") This field is required
+      ft-input.grid__col.grid__col--last(
+        type="text"
+        name="lastName"
+        id="lastName"
+        label="Last name"
+        v-model.trim="localLastName"
+        :valid-error="$v.localLastName.$error"
+        @change="$v.localLastName.$touch()"
+      )
+        template(slot="error-message")
+          span(v-if="!$v.localLastName.required") This field is required
 
-  template(slot="footer")
-    ft-button(type="submit" variant="primary" @click="submit") {{ btnText }}
+    template(slot="footer")
+      ft-button(type="submit" variant="primary" @click="submit") {{ btnText }}
 </template>
 
 <script>

@@ -1,22 +1,22 @@
 <template lang="pug">
-div
-  ft-loader(v-if="loading" fill center)
+  div
+    ft-loader(v-if="loading" fill center)
 
-  .text--error(v-else-if="error") {{ error }}
+    .text--error(v-else-if="error") {{ error }}
 
-  template(v-else-if="user")
-    h1 Edit user
+    template(v-else-if="user")
+      h1 Edit user
 
-    .grid
-      .grid__col.grid__col--first
-        ft-user-form(
-          :first-name="user.first_name"
-          :last-name="user.last_name"
-          @submit="payload => updateUser({ id: user.id, avatar: newAvatar, ...payload })"
-        )
+      .grid
+        .grid__col.grid__col--first
+          ft-user-form(
+            :first-name="user.first_name"
+            :last-name="user.last_name"
+            @submit="payload => updateUser({ id: user.id, avatar: newAvatar, ...payload })"
+          )
 
-      .grid__col.grid__col--last
-        ft-change-user-avatar(:avatar="user.avatar" @change="updateUserAvatar")
+        .grid__col.grid__col--last
+          ft-change-user-avatar(:avatar="user.avatar" @change="updateUserAvatar")
 </template>
 
 <script>
@@ -33,7 +33,7 @@ export default {
     }
   },
   methods: {
-    ...mapActions('users', [ 'fetchUser', 'updateUser' ]),
+    ...mapActions('users', ['fetchUser', 'updateUser']),
     updateUserAvatar (avatar) {
       this.newAvatar = avatar
     }
