@@ -1,78 +1,78 @@
 <template lang="pug">
-div
+  div
 
-  ft-loader(v-if="loading" fill center)
+    ft-loader(v-if="loading" fill center)
 
-  .text--error(v-else-if="error") {{ error }}
+    .text--error(v-else-if="error") {{ error }}
 
-  template(v-else)
-    h1 User list
+    template(v-else)
+      h1 User list
 
-    ft-section(header-two-columns)
-      template(slot="header")
-        ft-input(
-          slot="right"
-          placeholder="Search for users..."
-          :value="query"
-          @input="filter"
-        )
-          font-awesome-icon(slot="icon" :icon="loop")
+      ft-section(header-two-columns)
+        template(slot="header")
+          ft-input(
+            slot="right"
+            placeholder="Search for users..."
+            :value="query"
+            @input="filter"
+          )
+            font-awesome-icon(slot="icon" :icon="loop")
 
-        ft-button.add-user-btn(
-          slot="left"
-          variant="primary"
-          rounded
-          @click="goToAddUser"
-        )
-          font-awesome-icon.add-user-btn__icon(:icon="userPlus")
-          span.add-user-btn__text Add user
+          ft-button.add-user-btn(
+            slot="left"
+            variant="primary"
+            rounded
+            @click="goToAddUser"
+          )
+            font-awesome-icon.add-user-btn__icon(:icon="userPlus")
+            span.add-user-btn__text Add user
 
-      template(v-if="users.length")
-        ft-table(:headers="headers")
-          tr(v-for="user in users" :key="user.id")
-            td.cell--avatar
-              vue-clazy-load(v-if="user.avatar" :src="user.avatar")
-                ft-avatar(:src="user.avatar" radius="50" size="40")
-                template(slot="placeholder")
-                  ft-loader(center)
-              ft-avatar(v-else radius="50" size="40")
+        template(v-if="users.length")
+          ft-table(:headers="headers")
+            tr(v-for="user in users" :key="user.id")
+              td.cell--avatar
+                vue-clazy-load(v-if="user.avatar" :src="user.avatar")
+                  ft-avatar(:src="user.avatar" radius="50" size="40")
+                  template(slot="placeholder")
+                    ft-loader(center)
+                ft-avatar(v-else radius="50" size="40")
 
-            td
-              strong {{ user.first_name }} {{ user.last_name }}
+              td
+                strong {{ user.first_name }} {{ user.last_name }}
 
-            td.cell--actions
-              ft-button(
-                size="small"
-                variant="transparent"
-                aria-label="Edit user"
-                @click="gotToUser(user.id)"
-              )
-                font-awesome-icon(:icon="edit" size="lg")
+              td.cell--actions
+                ft-button(
+                  size="small"
+                  variant="transparent"
+                  aria-label="Edit user"
+                  @click="gotToUser(user.id)"
+                )
+                  font-awesome-icon(:icon="edit" size="lg")
 
-              ft-button(
-                size="small"
-                variant="transparent"
-                aria-label="Remove user"
-                @click="tryToRemoveUser(user.id)"
-              )
-                font-awesome-icon(:icon="trash" size="lg")
+                ft-button(
+                  size="small"
+                  variant="transparent"
+                  aria-label="Remove user"
+                  @click="tryToRemoveUser(user.id)"
+                )
+                  font-awesome-icon(:icon="trash" size="lg")
 
-      template(v-else)
-        h1 There are no users, yet.
-        p Would you like to add the first user?
-        ft-button(
-          variant="primary"
-          size="large"
-          rounded
-          @click="goToAddUser"
-        ) Add the user
+        template(v-else)
+          h1 There are no users, yet.
+          p Would you like to add the first user?
+          ft-button(
+            variant="primary"
+            size="large"
+            rounded
+            @click="goToAddUser"
+          ) Add the user
 
-    ft-pagination(
-      v-if="totalPages && users.length"
-      :total-pages="totalPages"
-      :active-page="pageNumber"
-      @currentPage="pageNum => fetchUsers(pageNum)"
-    )
+      ft-pagination(
+        v-if="totalPages && users.length"
+        :total-pages="totalPages"
+        :active-page="pageNumber"
+        @currentPage="pageNum => fetchUsers(pageNum)"
+      )
 </template>
 
 <script>
@@ -92,7 +92,7 @@ export default {
   name: 'Users',
   data () {
     return {
-      headers: [ '', 'Full name', 'Action' ],
+      headers: ['', 'Full name', 'Action'],
       query: '',
       loop: faSearch,
       trash: faTrash,
@@ -101,7 +101,7 @@ export default {
     }
   },
   methods: {
-    ...mapActions('users', [ 'fetchUsers', 'editUser', 'removeUser' ]),
+    ...mapActions('users', ['fetchUsers', 'editUser', 'removeUser']),
     filter (query) {
       this.query = query.toLowerCase()
       console.log('filter', this.query)
@@ -161,7 +161,7 @@ svg {
   &--avatar {
     width: 50px;
 
-    @include screen (min-tablet) {
+    @include screen(min-tablet) {
       width: 130px
     }
   }
@@ -169,7 +169,7 @@ svg {
   &--actions {
     width: 50px;
 
-    @include screen (min-tablet) {
+    @include screen(min-tablet) {
       width: 110px
     }
   }
@@ -182,7 +182,7 @@ svg {
   z-index: 99;
   box-shadow: $box-shadow;
 
-  @include screen (min-tablet) {
+  @include screen(min-tablet) {
     position: relative;
     right: auto;
     bottom: auto;
@@ -192,14 +192,14 @@ svg {
   &__text {
     display: none;
 
-    @include screen (min-tablet) {
+    @include screen(min-tablet) {
       display: inline
     }
   }
 
   &__icon {
 
-    @include screen (min-tablet) {
+    @include screen(min-tablet) {
       display: none
     }
   }

@@ -1,21 +1,21 @@
 <template lang="pug">
-div
-  ft-loader(v-if="loading" fill center)
+  div
+    ft-loader(v-if="loading" fill center)
 
-  .text--error(v-else-if="error") {{ error }}
+    .text--error(v-else-if="error") {{ error }}
 
-  template(v-else)
-    h1 Add user
+    template(v-else)
+      h1 Add user
 
-    .grid
-      .grid__col.grid__col--first
-        ft-user-form(
-          btn-text="Add user"
-          @submit="payload => createUser({ avatar: newAvatar, ...payload })"
-        )
+      .grid
+        .grid__col.grid__col--first
+          ft-user-form(
+            btn-text="Add user"
+            @submit="payload => createUser({ avatar: newAvatar, ...payload })"
+          )
 
-      .grid__col.grid__col--last
-        ft-change-user-avatar(@change="updateUserAvatar")
+        .grid__col.grid__col--last
+          ft-change-user-avatar(@change="updateUserAvatar")
 </template>
 
 <script>
@@ -32,13 +32,13 @@ export default {
     }
   },
   methods: {
-    ...mapActions('users', [ 'createUser' ]),
+    ...mapActions('users', ['createUser']),
     updateUserAvatar (avatar) {
       this.newAvatar = avatar
     }
   },
   computed: {
-    ...mapGetters([ 'loading', 'error' ])
+    ...mapGetters(['loading', 'error'])
   },
   components: {
     FtUserForm,
