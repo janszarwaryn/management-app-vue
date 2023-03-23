@@ -1,8 +1,8 @@
 <template lang="pug">
-main#app
-  ft-container
-    transition(name="route" mode="out-in")
-      router-view
+  main#app
+    ft-container
+      transition(name="route" mode="out-in")
+        router-view
 </template>
 
 <script>
@@ -19,14 +19,14 @@ export default {
     }
   },
   methods: {
-    ...mapMutations([ 'setLoading', 'setError' ]),
+    ...mapMutations(['setLoading', 'setError']),
     update () {
       if (this.loading) this.setLoading(false)
       if (this.error) this.setError(null)
     }
   },
   computed: {
-    ...mapGetters([ 'loading', 'error' ])
+    ...mapGetters(['loading', 'error'])
   },
   components: {
     FtLoader,
@@ -77,7 +77,7 @@ a {
   color: $accent;
 
   &:hover {
-      color: $dark-accent
+    color: $dark-accent
   }
 }
 
@@ -95,36 +95,36 @@ strong {
 
 .grid {
 
-  @include screen (min-tablet) {
+  @include screen(min-tablet) {
     display: flex;
     flex-direction: row;
-    margin-right:-1rem;
+    margin-right: -1rem;
     margin-left: -1rem;
   }
 
   &__col {
-    @include screen (min-tablet) {
+    @include screen(min-tablet) {
       padding-right: 1rem;
       padding-left: 1rem;
     }
 
     &--first {
 
-      @include screen (min-tablet) {
+      @include screen(min-tablet) {
         width: calc(100% / 3 * 2)
       }
     }
 
     &--last {
 
-      @include screen (min-tablet) {
+      @include screen(min-tablet) {
         width: calc(100% / 6 * 2)
       }
     }
 
     &--half {
 
-      @include screen (min-tablet) {
+      @include screen(min-tablet) {
         width: calc(100% / 1 * 2)
       }
     }
